@@ -6,7 +6,10 @@
 	<groupId>com.laonog</groupId>
 	<artifactId>laonog-admin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<modules>
+		<module>laonong-center</module>
+	</modules>
+	<packaging>pom</packaging>
 
 	<name>laonog-admin</name>
 	<description>laonog-admin project for Spring Boot</description>
