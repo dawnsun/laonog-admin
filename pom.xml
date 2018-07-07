@@ -8,7 +8,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<modules>
 		<module>laonong-center</module>
-	</modules>
+        <module>laonong-auth</module>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>laonog-admin</name>
@@ -28,7 +29,7 @@
 		<spring-cloud.version>Finchley.M9</spring-cloud.version>
 	</properties>
 
-	<dependencies>
+	<!--<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
@@ -52,7 +53,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+	</dependencies>-->
 
 	<dependencyManagement>
 		<dependencies>
