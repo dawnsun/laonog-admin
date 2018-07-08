@@ -1,0 +1,16 @@
+spring:
+    application:
+        name: laonong-auth
+
+server:
+    port: 8081 #启动端口
+
+eureka:
+    instance:
+        leaseRenewalIntervalInSeconds: 10 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒
+    client:
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+        registryFetchIntervalSeconds: 5 #从eureka服务器注册表中获取注册信息的时间间隔（s），默认为30秒
+
+

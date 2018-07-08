@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>laonong-auth</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>laonong-auth-service</module>
+    </modules>
 
 
 </project>
