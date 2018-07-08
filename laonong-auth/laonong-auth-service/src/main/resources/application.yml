@@ -13,4 +13,59 @@ eureka:
         defaultZone: http://localhost:8761/eureka/
         registryFetchIntervalSeconds: 5 #从eureka服务器注册表中获取注册信息的时间间隔（s），默认为30秒
 
+#datasource config
+jdbc:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.99.100:3306/blog?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf-8
+    username: root
+    password: 123456
 
+#Mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j.Log4jImpl #使用日志
+    cache-enabled: true                                 #使全局的映射器启用或禁用缓存
+    lazy-loading-enabled: true                          #全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载
+    aggressive-lazy-loading: true                       #当启用时，有延迟加载属性的对象在被调用时将会完全加载任意属性。否则，每种属性将会按需要加载
+    multiple-result-sets-enabled: true                  #是否允许单条sql 返回多个数据集  (取决于驱动的兼容性) default:true
+    use-column-label: true                              #是否可以使用列的别名 (取决于驱动的兼容性) default:true
+    use-generated-keys: true                            #允许JDBC 生成主键。需要驱动器支持。如果设为了true，这个设置将强制使用被生成的主键，有一些驱动器不兼容不过仍然可以执行。  default:false
+    auto-mapping-behavior: partial                      #指定 MyBatis 如何自动映射 数据基表的列 NONE：不映射　PARTIAL:部分  FULL:全部
+    default-executor-type: simple                       #这是默认的执行类型  （SIMPLE: 简单； REUSE: 执行器可能重复使用prepared statements语句；BATCH: 执行器可以重复执行语句和批量更新）
+    map-underscore-to-camel-case: true                  #使用驼峰命名法转换字段
+    local-cache-scope: session                          #设置本地缓存范围 session:就会有数据的共享  statement:语句范围 (多个SqlSession或者分布式的环境下使用，避免脏读 ) defalut:session
+    jdbc-type-for-null: null                            #设置但JDBC类型为空时,某些驱动程序 要指定值,default:OTHER，插入空值时不需要指定类型
+
+ #mysql和阿里druid配置
+ spring:
+   datasource:
+     type: com.alibaba.druid.pool.DruidDataSource
+     url: jdbc:mysql://localhost/test?useSSL=false&serverTimezone=UTC
+     username: root
+     password:
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     # 下面为连接池的补充设置，应用到上面所有数据源中
+     # 初始化大小，最小，最大
+     initialSize: 1
+     minIdle: 3
+     maxActive: 20
+     # 配置获取连接等待超时的时间
+     maxWait: 60000
+     # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+     timeBetweenEvictionRunsMillis: 60000
+     # 配置一个连接在池中最小生存的时间，单位是毫秒
+     minEvictableIdleTimeMillis: 30000
+     validationQuery: select 'x'
+     testWhileIdle: true
+     testOnBorrow: false
+     testOnReturn: false
+     # 打开PSCache，并且指定每个连接上PSCache的大小
+     poolPreparedStatements: true
+     maxPoolPreparedStatementPerConnectionSize: 20
+     # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+     filters: stat,wall,slf4j
+     # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+     # 合并多个DruidDataSource的监控数据
+     useGlobalDataSourceStat: true
