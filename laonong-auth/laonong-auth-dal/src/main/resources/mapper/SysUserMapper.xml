@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.laonog.admin.auth.dal.dao.sysuser.SysUserDAO">
+
+   <resultMap type="com.laonog.admin.auth.dal.entity.sysuser.SysUserDO" id="sysUserMap">
+               <result property="id" column="id" jdbcType="bigint"/>
+               <result property="username" column="username" jdbcType="varchar"/>
+               <result property="password" column="password" jdbcType="varchar"/>
+               <result property="phoneNumber" column="phone_number" jdbcType="varchar"/>
+               <result property="address" column="address" jdbcType="varchar"/>
+               <result property="avatar" column="avatar" jdbcType="varchar"/>
+               <result property="nickname" column="nickname" jdbcType="varchar"/>
+               <result property="qrCode" column="qr_code" jdbcType="varchar"/>
+               <result property="sex" column="sex" jdbcType="tinyint"/>
+               <result property="birthday" column="birthday" jdbcType="varchar"/>
+               <result property="userStatus" column="user_status" jdbcType="tinyint"/>
+               <result property="gmtCreate" column="gmt_create" jdbcType="datetime"/>
+               <result property="gmtModified" column="gmt_modified" jdbcType="datetime"/>
+               <result property="creator" column="creator" jdbcType="varchar"/>
+               <result property="modifier" column="modifier" jdbcType="varchar"/>
+               <result property="isDelete" column="is_delete" jdbcType="tinyint"/>
+         </resultMap>
+
+   <sql id="Base_Column_List">
+      id, username, password, phone_number, address, avatar, nickname, qr_code, sex, birthday, user_status, gmt_create, gmt_modified, creator, modifier, is_delete
+   </sql>
+
+   <sql id="table_name">
+      sys_user
+   </sql>
+
+   <!--插入 -->
+   <insert id="insertSysUser" parameterType="com.laonog.admin.auth.dal.entity.sysuser.SysUserDO">
+      insert into <include refid="table_name"/> (<include refid="Base_Column_List" />)
+      values (#{id}, #{username}, #{password}, #{phoneNumber}, #{address}, #{avatar}, #{nickname}, #{qrCode}, #{sex}, #{birthday}, #{userStatus}, #{gmtCreate}, #{gmtModified}, #{creator}, #{modifier}, #{isDelete})
+      <selectKey resultType="java.lang.Long" keyProperty="id">
+         SELECT LAST_INSERT_ID()
+      </selectKey>
+   </insert>
+
+   
+
+   <!--修改 -->
+   <update id="updateSysUser" parameterType="com.laonog.admin.auth.dal.entity.sysuser.SysUserDO" >
+      update <include refid="table_name"/>
+      <set>
+                                 <if test="username != null and username !=''">
+            username = #{username},
+         </if>
+                           <if test="password != null and password !=''">
+            password = #{password},
+         </if>
+                           <if test="phoneNumber != null and phoneNumber !=''">
+            phone_number = #{phoneNumber},
+         </if>
+                           <if test="address != null and address !=''">
+            address = #{address},
+         </if>
+                           <if test="avatar != null and avatar !=''">
+            avatar = #{avatar},
+         </if>
+                           <if test="nickname != null and nickname !=''">
+            nickname = #{nickname},
+         </if>
+                           <if test="qrCode != null and qrCode !=''">
+            qr_code = #{qrCode},
+         </if>
+                           <if test="sex != null and sex !=''">
+            sex = #{sex},
+         </if>
+                           <if test="birthday != null and birthday !=''">
+            birthday = #{birthday},
+         </if>
+                           <if test="userStatus != null and userStatus !=''">
+            user_status = #{userStatus},
+         </if>
+                           <if test="gmtCreate != null and gmtCreate !=''">
+            gmt_create = #{gmtCreate},
+         </if>
+                           <if test="gmtModified != null and gmtModified !=''">
+            gmt_modified = #{gmtModified},
+         </if>
+                           <if test="creator != null and creator !=''">
+            creator = #{creator},
+         </if>
+                           <if test="modifier != null and modifier !=''">
+            modifier = #{modifier},
+         </if>
+                           <if test="isDelete != null and isDelete !=''">
+            is_delete = #{isDelete},
+         </if>
+                  </set>
+      <where>
+         id  = #{id}
+      </where>
+   </update>
+
+   <!--逻辑删除 -->
+   <update id="deleteSysUser" parameterType="com.laonog.admin.auth.dal.entity.sysuser.SysUserDO" >
+      update <include refid="table_name"/>
+      <set>
+         is_deleted = #{isDeleted}
+      </set>
+      <where>
+         id = #{id}
+      </where>
+   </update>
+
+   <!--主键查询 -->
+   <select id="getSysUser" parameterType="com.laonog.admin.auth.dal.query.sysuser.SysUserQuery" resultMap="sysUserMap">
+      select
+      <include refid="Base_Column_List"/>
+      from
+      <include refid="table_name"/>
+      <where>
+         <if test="id != null and id!=''">
+            id=#{id}
+         </if>
+         <if test="isDeleted != null and isDeleted!=''">
+            AND is_deleted = #{isDeleted}
+         </if>
+      </where>
+   </select>
+
+   <!--查询数量 -->
+   <select id="getSysUserCount" parameterType="com.laonog.admin.auth.dal.query.sysuser.SysUserQuery" resultType="java.lang.Long">
+      select
+      count(id)
+      from
+      <include refid="table_name"/>
+      <where>
+                                             <if test="username != null and username !=''">
+            AND username = #{username}
+         </if>
+                                    <if test="password != null and password !=''">
+            AND password = #{password}
+         </if>
+                                    <if test="phoneNumber != null and phoneNumber !=''">
+            AND phone_number = #{phoneNumber}
+         </if>
+                                    <if test="address != null and address !=''">
+            AND address = #{address}
+         </if>
+                                    <if test="avatar != null and avatar !=''">
+            AND avatar = #{avatar}
+         </if>
+                                    <if test="nickname != null and nickname !=''">
+            AND nickname = #{nickname}
+         </if>
+                                    <if test="qrCode != null and qrCode !=''">
+            AND qr_code = #{qrCode}
+         </if>
+                                    <if test="sex != null and sex !=''">
+            AND sex = #{sex}
+         </if>
+                                    <if test="birthday != null and birthday !=''">
+            AND birthday = #{birthday}
+         </if>
+                                    <if test="userStatus != null and userStatus !=''">
+            AND user_status = #{userStatus}
+         </if>
+                                    <if test="gmtCreate != null and gmtCreate !=''">
+            AND gmt_create = #{gmtCreate}
+         </if>
+                                    <if test="gmtModified != null and gmtModified !=''">
+            AND gmt_modified = #{gmtModified}
+         </if>
+                                    <if test="creator != null and creator !=''">
+            AND creator = #{creator}
+         </if>
+                                    <if test="modifier != null and modifier !=''">
+            AND modifier = #{modifier}
+         </if>
+                                    <if test="isDelete != null and isDelete !=''">
+            AND is_delete = #{isDelete}
+         </if>
+                        </where>
+   </select>
+
+   <!--查询列表 -->
+   <select id="getSysUserList" parameterType="com.laonog.admin.auth.dal.query.sysuser.SysUserQuery" resultMap="sysUserMap">
+      select
+      <include refid="Base_Column_List"/>
+      from
+      <include refid="table_name"/>
+      <where>
+                                             <if test="username != null and username !=''">
+            AND username = #{username}
+         </if>
+                                    <if test="password != null and password !=''">
+            AND password = #{password}
+         </if>
+                                    <if test="phoneNumber != null and phoneNumber !=''">
+            AND phone_number = #{phoneNumber}
+         </if>
+                                    <if test="address != null and address !=''">
+            AND address = #{address}
+         </if>
+                                    <if test="avatar != null and avatar !=''">
+            AND avatar = #{avatar}
+         </if>
+                                    <if test="nickname != null and nickname !=''">
+            AND nickname = #{nickname}
+         </if>
+                                    <if test="qrCode != null and qrCode !=''">
+            AND qr_code = #{qrCode}
+         </if>
+                                    <if test="sex != null and sex !=''">
+            AND sex = #{sex}
+         </if>
+                                    <if test="birthday != null and birthday !=''">
+            AND birthday = #{birthday}
+         </if>
+                                    <if test="userStatus != null and userStatus !=''">
+            AND user_status = #{userStatus}
+         </if>
+                                    <if test="gmtCreate != null and gmtCreate !=''">
+            AND gmt_create = #{gmtCreate}
+         </if>
+                                    <if test="gmtModified != null and gmtModified !=''">
+            AND gmt_modified = #{gmtModified}
+         </if>
+                                    <if test="creator != null and creator !=''">
+            AND creator = #{creator}
+         </if>
+                                    <if test="modifier != null and modifier !=''">
+            AND modifier = #{modifier}
+         </if>
+                                    <if test="isDelete != null and isDelete !=''">
+            AND is_delete = #{isDelete}
+         </if>
+                        </where>
+   </select>
+
+   <!--查询分页 -->
+   <select id="getSysUserPage" parameterType="com.laonog.admin.auth.dal.query.sysuser.SysUserQuery" resultMap="sysUserMap">
+      select
+      <include refid="Base_Column_List"/>
+      from
+      <include refid="table_name"/>
+      <where>
+                                             <if test="username != null and username !=''">
+            AND username = #{username}
+         </if>
+                                    <if test="password != null and password !=''">
+            AND password = #{password}
+         </if>
+                                    <if test="phoneNumber != null and phoneNumber !=''">
+            AND phone_number = #{phoneNumber}
+         </if>
+                                    <if test="address != null and address !=''">
+            AND address = #{address}
+         </if>
+                                    <if test="avatar != null and avatar !=''">
+            AND avatar = #{avatar}
+         </if>
+                                    <if test="nickname != null and nickname !=''">
+            AND nickname = #{nickname}
+         </if>
+                                    <if test="qrCode != null and qrCode !=''">
+            AND qr_code = #{qrCode}
+         </if>
+                                    <if test="sex != null and sex !=''">
+            AND sex = #{sex}
+         </if>
+                                    <if test="birthday != null and birthday !=''">
+            AND birthday = #{birthday}
+         </if>
+                                    <if test="userStatus != null and userStatus !=''">
+            AND user_status = #{userStatus}
+         </if>
+                                    <if test="gmtCreate != null and gmtCreate !=''">
+            AND gmt_create = #{gmtCreate}
+         </if>
+                                    <if test="gmtModified != null and gmtModified !=''">
+            AND gmt_modified = #{gmtModified}
+         </if>
+                                    <if test="creator != null and creator !=''">
+            AND creator = #{creator}
+         </if>
+                                    <if test="modifier != null and modifier !=''">
+            AND modifier = #{modifier}
+         </if>
+                                    <if test="isDelete != null and isDelete !=''">
+            AND is_delete = #{isDelete}
+         </if>
+                        </where>
+      order by gmt_modified desc
+      limit #{offset},#{limit}
+   </select>
+
+</mapper>

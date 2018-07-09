@@ -9,7 +9,8 @@
 	<modules>
 		<module>laonong-center</module>
         <module>laonong-auth</module>
-    </modules>
+		<module>laonong-common</module>
+	</modules>
 	<packaging>pom</packaging>
 
 	<name>laonog-admin</name>

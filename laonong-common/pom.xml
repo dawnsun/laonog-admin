@@ -9,14 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>laonong-auth</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>laonong-auth-service</module>
-        <module>laonong-auth-common</module>
-        <module>laonong-auth-dal</module>
-        <module>laonong-auth-api</module>
-    </modules>
+    <artifactId>laonong-common</artifactId>
 
 
 </project>
