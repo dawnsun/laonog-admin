@@ -2,6 +2,7 @@ package com.laonog.admin.auth.dal.dao.sysuser;
 
 import com.laonog.admin.auth.dal.entity.sysuser.SysUserDO;
 import com.laonog.admin.auth.dal.query.sysuser.SysUserQuery;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @email scg16@126.com
  * @date 2018-07-09 18:45:59
  */
+@Mapper
 public interface SysUserDAO {
 
     /**

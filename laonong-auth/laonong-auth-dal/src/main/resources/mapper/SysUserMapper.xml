@@ -4,22 +4,22 @@
 <mapper namespace="com.laonog.admin.auth.dal.dao.sysuser.SysUserDAO">
 
    <resultMap type="com.laonog.admin.auth.dal.entity.sysuser.SysUserDO" id="sysUserMap">
-               <result property="id" column="id" jdbcType="bigint"/>
-               <result property="username" column="username" jdbcType="varchar"/>
-               <result property="password" column="password" jdbcType="varchar"/>
-               <result property="phoneNumber" column="phone_number" jdbcType="varchar"/>
-               <result property="address" column="address" jdbcType="varchar"/>
-               <result property="avatar" column="avatar" jdbcType="varchar"/>
-               <result property="nickname" column="nickname" jdbcType="varchar"/>
-               <result property="qrCode" column="qr_code" jdbcType="varchar"/>
-               <result property="sex" column="sex" jdbcType="tinyint"/>
-               <result property="birthday" column="birthday" jdbcType="varchar"/>
-               <result property="userStatus" column="user_status" jdbcType="tinyint"/>
-               <result property="gmtCreate" column="gmt_create" jdbcType="datetime"/>
-               <result property="gmtModified" column="gmt_modified" jdbcType="datetime"/>
-               <result property="creator" column="creator" jdbcType="varchar"/>
-               <result property="modifier" column="modifier" jdbcType="varchar"/>
-               <result property="isDelete" column="is_delete" jdbcType="tinyint"/>
+               <result property="id" column="id" jdbcType="BIGINT"/>
+               <result property="username" column="username" jdbcType="VARCHAR"/>
+               <result property="password" column="password" jdbcType="VARCHAR"/>
+               <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+               <result property="address" column="address" jdbcType="VARCHAR"/>
+               <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+               <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
+               <result property="qrCode" column="qr_code" jdbcType="VARCHAR"/>
+               <result property="sex" column="sex" jdbcType="TINYINT"/>
+               <result property="birthday" column="birthday" jdbcType="VARCHAR"/>
+               <result property="userStatus" column="user_status" jdbcType="TINYINT"/>
+               <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+               <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+               <result property="creator" column="creator" jdbcType="VARCHAR"/>
+               <result property="modifier" column="modifier" jdbcType="VARCHAR"/>
+               <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
          </resultMap>
 
    <sql id="Base_Column_List">

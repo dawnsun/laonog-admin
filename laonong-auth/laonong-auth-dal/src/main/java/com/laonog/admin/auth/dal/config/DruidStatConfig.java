@@ -27,7 +27,7 @@ public class DruidStatConfig {
 
     private static final String DB_PREFIX = "spring.datasource";
 
-    @Bean
+    /*@Bean
     public ServletRegistrationBean druidServlet() {
         logger.info("init Druid Servlet Configuration ");
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(),
@@ -50,7 +50,7 @@ public class DruidStatConfig {
         filterRegistrationBean.addUrlPatterns("/*");
         filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         return filterRegistrationBean;
-    }
+    }*/
 
     @Bean(destroyMethod = "close", initMethod = "init")
     @ConfigurationProperties(prefix = "spring.datasource")
