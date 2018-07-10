@@ -1,54 +1,25 @@
 package com.laonog.admin.common.response;
 
-public class ListRestResponse<T> {
-    String msg;
-    T result;
-    int count;
+import java.util.List;
 
+public class ListRestResponse<T>{
 
+    /** 数据 **/
+    private List<T> data;
+    /** 返回消息 **/
+    private String msg;
 
-    public String getMsg() {
-        return msg;
+    public ListRestResponse(String msg, List<T> data) {
+        this.msg=msg;
+        this.data = data;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public List<T> getData() {
+        return data;
     }
 
-    public T getResult() {
-        return result;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    public ListRestResponse count(int count) {
-        this.setCount(count);
-        return this;
-    }
-
-    public ListRestResponse count(Long count) {
-        this.setCount(count.intValue());
-        return this;
-    }
-
-    public ListRestResponse msg(String msg) {
-        this.setMsg(msg);
-        return this;
-    }
-
-    public ListRestResponse result(T result) {
-        this.setResult(result);
-        return this;
+    public void setData(List<T> data) {
+        this.data = data;
     }
 
 }

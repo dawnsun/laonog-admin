@@ -3,11 +3,12 @@ package com.laonog.admin.common.response;
 import java.util.List;
 
 
-public class TableResultResponse<T> extends BaseResponse {
+public class TableResultResponse<T>  extends BaseResponse{
 
     TableData<T> data;
 
-    public TableResultResponse(long total, List<T> rows) {
+    public TableResultResponse(String msg, long total, List<T> rows) {
+        this.setMsg(msg);
         this.data = new TableData<T>(total, rows);
     }
 

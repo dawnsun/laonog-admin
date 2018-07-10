@@ -3,9 +3,9 @@ package com.laonog.admin.auth.biz.service.impl.sysuser;
 import com.laonog.admin.auth.biz.service.sysuser.SysUserService;
 import com.laonog.admin.auth.dal.query.sysuser.SysUserQuery;
 import com.laonog.admin.common.response.TableResultResponse;
+import com.laonog.auth.api.facade.sysuser.com.laonog.auth.api.vos.sysuser.SysUserVO;
 import org.springframework.stereotype.Service;
 import com.laonog.admin.auth.dal.entity.sysuser.SysUserDO;
-import com.laonog.admin.auth.biz.vos.sysuser.SysUserVO;
 import com.laonog.admin.auth.dal.dao.sysuser.SysUserDAO;
 import com.laonog.admin.auth.biz.converter.sysuser.SysUserConverter;
 import org.slf4j.Logger;
@@ -146,7 +146,7 @@ public class SysUserServiceImpl implements SysUserService {
             Long count = sysUserDAO.getSysUserCount(sysUserQuery);
             List<SysUserDO> sysUserDOList = sysUserDAO.getSysUserList(sysUserQuery);
             sysUserVOList = SysUserConverter.convertDOs2VOs(sysUserDOList);
-            return new TableResultResponse<SysUserVO>(count,sysUserVOList);
+            return new TableResultResponse<SysUserVO>("",count,sysUserVOList);
         } catch (Exception e) {
             logger.error("SysUserService getSysUserPage " + e);
             return null;

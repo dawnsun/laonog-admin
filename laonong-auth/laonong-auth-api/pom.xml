@@ -11,5 +11,21 @@
 
     <artifactId>laonong-auth-api</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <artifactId>laonong-auth-dal</artifactId>
+            <groupId>com.laonog</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.laonog</groupId>
+            <artifactId>laonong-auth-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

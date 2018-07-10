@@ -1,30 +1,18 @@
 package com.laonog.admin.common.response;
 
 
-public class ObjectRestResponse<T> extends BaseResponse {
+public class ObjectRestResponse<T> {
 
-    T data;
-    boolean rel;
+    /** 数据 **/
+    private T data;
+    /** 返回消息 **/
+    private String msg;
 
-    public boolean isRel() {
-        return rel;
+    public ObjectRestResponse(String msg, T data) {
+        this.msg=msg;
+        this.data = data;
     }
 
-    public void setRel(boolean rel) {
-        this.rel = rel;
-    }
-
-
-    public ObjectRestResponse rel(boolean rel) {
-        this.setRel(rel);
-        return this;
-    }
-
-
-    public ObjectRestResponse data(T data) {
-        this.setData(data);
-        return this;
-    }
     public T getData() {
         return data;
     }
@@ -33,5 +21,11 @@ public class ObjectRestResponse<T> extends BaseResponse {
         this.data = data;
     }
 
+    public String getMsg() {
+        return msg;
+    }
 
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
 }

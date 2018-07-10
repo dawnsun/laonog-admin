@@ -4,8 +4,6 @@ import org.apache.commons.lang.StringUtils;
 
 public enum ErrorCodeEnum {
 
-    SUCCESS("success", "操作成功"),
-
     FAILED("failed", "操作失败"),
 
     PARAM_ERROR("param error", "参数异常"),
