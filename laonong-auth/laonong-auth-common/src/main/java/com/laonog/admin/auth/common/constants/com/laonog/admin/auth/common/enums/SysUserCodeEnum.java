@@ -29,9 +29,9 @@ public enum SysUserCodeEnum {
         if (StringUtils.isBlank(code)) {
             return null;
         }
-        for (SuccessCodeEnum object : SuccessCodeEnum.values()) {
-            if (object.getSuccessCode().equals(code)) {
-                return object.getSuccessMessage();
+        for (SysUserCodeEnum object : SysUserCodeEnum.values()) {
+            if (object.getCode().equals(code)) {
+                return object.getMessage();
             }
         }
         return null;
