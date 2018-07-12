@@ -8,7 +8,15 @@ public enum SuccessCodeEnum {
 
     PAREAM_CHEKC("success", "参数验证通过"),
 
-    FAILED("failed", "操作失败");
+    QUERY_SUCCESS("query success", "查询成功"),
+
+    INSERT_SUCCESS("insert success", "新增成功"),
+
+    UPDATE_SUCCESS("update success", "修改成功"),
+
+    DELETE_SUCCESS("delete success", "删除成功"),
+
+    ;
 
 
 

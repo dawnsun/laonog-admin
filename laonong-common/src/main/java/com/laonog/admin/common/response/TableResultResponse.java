@@ -3,13 +3,51 @@ package com.laonog.admin.common.response;
 import java.util.List;
 
 
-public class TableResultResponse<T>  extends BaseResponse{
+public class TableResultResponse<T>{
 
-    TableData<T> data;
+    private TableData<T> data;
 
+    /** 返回消息 **/
+    private String msg;
+    /** 结果状态 **/
+    private boolean rel = false;
+    /** 错误编码 */
+    private String errorCode ;
+    /** 系统状态 **/
+    private int status = 200;
+
+    /**
+     * 正确状态数据返回
+     * @param msg 提示信息
+     * @param total 总数
+     * @param rows 数据
+     */
     public TableResultResponse(String msg, long total, List<T> rows) {
-        this.setMsg(msg);
+        this.rel = true;
+        this.msg = msg;
         this.data = new TableData<T>(total, rows);
+    }
+
+    /**
+     * 带系统状态的错误信息返回
+     * @param status
+     * @param errorCode
+     * @param msg
+     */
+    public TableResultResponse(int status, String errorCode, String msg) {
+        this.status = status;
+        this.msg = msg;
+        this.errorCode = errorCode;
+    }
+
+    /**
+     * 无业务数据错误信息返回
+     * @param errorCode
+     * @param msg
+     */
+    public TableResultResponse(String errorCode, String msg) {
+        this.msg = msg;
+        this.errorCode = errorCode;
     }
 
     public TableResultResponse() {

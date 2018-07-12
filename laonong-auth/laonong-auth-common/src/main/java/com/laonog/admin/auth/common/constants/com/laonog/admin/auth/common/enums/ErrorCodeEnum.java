@@ -8,23 +8,17 @@ public enum ErrorCodeEnum {
 
     PARAM_ERROR("param error", "参数异常"),
 
-    PARAM_IS_EMPTY("param is empty", "参数为空"),
-
-    PARAM_TOO_LONG("size overrun", "参数超长"),
-
     SQL_OPERATION_ERROR("sql operation error", "数据库操作异常"),
 
     SQL_QUERY_ERROR("sql query error", "数据库查询异常"),
 
-    QUERY_ERROR("query error", "查询异常，请修改查询内容再试"),
+    QUERY_ERROR("query error", "查询失败"),
 
-    UPDATE_ERROR("update error", "修改异常"),
+    INSERT_ERROR("insert error", "新增失败"),
 
-    DELETE_ERROR("delete error", "删除异常"),
+    UPDATE_ERROR("update error", "修改失败"),
 
-    INSERT_ERROR("insert error", "新增异常"),
-
-    IMPORT_ERROR("import error", "导入异常"),
+    DELETE_ERROR("delete error", "删除失败"),
 
     SYSTEM_ERROR("system error", "系统异常");
 
