@@ -5,10 +5,7 @@ import com.laonog.admin.common.response.ListRestResponse;
 import com.laonog.admin.common.response.ObjectRestResponse;
 import com.laonog.admin.common.response.TableResultResponse;
 import com.laonog.auth.api.vos.sysuser.SysUserVO;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,7 +25,7 @@ public interface SysUserClient {
      * @return
      */
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-    ObjectRestResponse<Boolean> deleteSysUser(@PathVariable Long id);
+    ObjectRestResponse<Boolean> deleteSysUser(@RequestParam("id") Long id);
 
     /**
      * 修改
@@ -44,7 +41,7 @@ public interface SysUserClient {
      * @return
      */
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-    ObjectRestResponse<SysUserVO> getSysUser(@PathVariable Long id);
+    ObjectRestResponse<SysUserVO> getSysUser(@PathVariable("id") Long id);
 
     /**
      * 查询列表

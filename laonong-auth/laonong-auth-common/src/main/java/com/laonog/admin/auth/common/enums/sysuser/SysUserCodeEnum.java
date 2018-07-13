@@ -1,4 +1,4 @@
-package com.laonog.admin.auth.common.enums;
+package com.laonog.admin.auth.common.enums.sysuser;
 
 import org.apache.commons.lang.StringUtils;
 

@@ -2,7 +2,10 @@ package com.laonog.admin.auth.biz.controller.sysuser;
 
 import com.laonog.admin.auth.biz.check.sysuser.SysUserCheck;
 import com.laonog.admin.auth.biz.service.sysuser.SysUserService;
+import com.laonog.admin.auth.common.enums.ErrorCodeEnum;
+import com.laonog.admin.auth.common.enums.SuccessCodeEnum;
 import com.laonog.admin.auth.dal.query.sysuser.SysUserQuery;
+import com.laonog.admin.common.constant.DataStateConstants;
 import com.laonog.admin.common.response.CheckResponse;
 import com.laonog.admin.common.response.ListRestResponse;
 import com.laonog.admin.common.response.ObjectRestResponse;
@@ -26,23 +29,69 @@ public class SysUserController implements SysUserClient {
         if(checkResponse.isRel()){
             return new ObjectRestResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
         }
+        sysUserVO.setCreator("creator");
+        sysUserVO.setModifier("modifier");
+        sysUserVO.setUserStatus(DataStateConstants.USERSTATUS_LOCK);
+        sysUserVO.setIsDelete(DataStateConstants.IS_DELETED);
         boolean result = sysUserService.insertSysUser(sysUserVO);
-        return new ObjectRestResponse<SysUserVO>("insertSysUser success",sysUserVO);
+        if(result){
+            return new ObjectRestResponse<SysUserVO>(SuccessCodeEnum.INSERT_SUCCESS.getSuccessMessage(),sysUserVO);
+        }else{
+            return new ObjectRestResponse<SysUserVO>(ErrorCodeEnum.INSERT_ERROR.getErrorCode(),ErrorCodeEnum.INSERT_ERROR.getErrorMessage(),sysUserVO);
+        }
+
     }
 
     @Override
     public ObjectRestResponse<Boolean> deleteSysUser(Long id) {
-        return null;
+        CheckResponse checkResponse = SysUserCheck.checkPareamKey(id);
+        if(checkResponse.isRel()){
+            return new ObjectRestResponse<Boolean>(checkResponse.getErrorCode(),checkResponse.getMsg());
+        }
+        SysUserVO sysUserVO = new SysUserVO();
+        sysUserVO.setId(id);
+        sysUserVO.setIsDelete(DataStateConstants.DELETED);
+        boolean result = sysUserService.deleteSysUser(sysUserVO);
+        if(result){
+            return new ObjectRestResponse<Boolean>(SuccessCodeEnum.DELETE_SUCCESS.getSuccessMessage(),result);
+        }else{
+            return new ObjectRestResponse<Boolean>(ErrorCodeEnum.DELETE_ERROR.getErrorCode(),ErrorCodeEnum.DELETE_ERROR.getErrorMessage(),result);
+        }
     }
 
     @Override
     public ObjectRestResponse<SysUserVO> updateSysUser(SysUserVO sysUserVO) {
-        return null;
+        CheckResponse checkResponse = SysUserCheck.checkUpdatePaream(sysUserVO);
+        if(checkResponse.isRel()){
+            return new ObjectRestResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
+        }
+        sysUserVO.setCreator("creator");
+        sysUserVO.setModifier("modifier");
+        sysUserVO.setUserStatus(DataStateConstants.USERSTATUS_LOCK);
+        sysUserVO.setIsDelete(DataStateConstants.IS_DELETED);
+        boolean result = sysUserService.updateSysUser(sysUserVO);
+        if(result){
+            return new ObjectRestResponse<SysUserVO>(SuccessCodeEnum.UPDATE_SUCCESS.getSuccessMessage(),sysUserVO);
+        }else{
+            return new ObjectRestResponse<SysUserVO>(ErrorCodeEnum.UPDATE_ERROR.getErrorCode(),ErrorCodeEnum.UPDATE_ERROR.getErrorMessage(),sysUserVO);
+        }
     }
 
     @Override
     public ObjectRestResponse<SysUserVO> getSysUser(Long id) {
-        return null;
+        CheckResponse checkResponse = SysUserCheck.checkPareamKey(id);
+        if(checkResponse.isRel()){
+            return new ObjectRestResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
+        }
+        SysUserQuery sysUserQuery = new SysUserQuery();
+        sysUserQuery.setId(id);
+        sysUserQuery.setIsDelete(DataStateConstants.IS_DELETED);
+        SysUserVO sysUserVO = sysUserService.getSysUser(sysUserQuery);
+        if(null != sysUserVO){
+            return new ObjectRestResponse<SysUserVO>(SuccessCodeEnum.QUERY_SUCCESS.getSuccessMessage(),sysUserVO);
+        }else{
+            return new ObjectRestResponse<SysUserVO>(ErrorCodeEnum.QUERY_ERROR.getErrorCode(),ErrorCodeEnum.QUERY_ERROR.getErrorMessage(),sysUserVO);
+        }
     }
 
     @Override

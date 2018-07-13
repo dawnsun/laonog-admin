@@ -72,6 +72,38 @@ public class TableResultResponse<T>{
         this.data = data;
     }
 
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public boolean isRel() {
+        return rel;
+    }
+
+    public void setRel(boolean rel) {
+        this.rel = rel;
+    }
+
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     class TableData<T> {
         long total;
         List<T> rows;

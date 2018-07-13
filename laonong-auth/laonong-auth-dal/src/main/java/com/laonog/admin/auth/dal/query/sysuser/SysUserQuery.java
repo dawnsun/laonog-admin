@@ -253,4 +253,12 @@ public class SysUserQuery {
     public Integer getIsDelete() {
         return isDelete;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
