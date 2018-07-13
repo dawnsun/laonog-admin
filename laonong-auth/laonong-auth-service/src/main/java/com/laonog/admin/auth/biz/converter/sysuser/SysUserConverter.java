@@ -1,7 +1,7 @@
 package com.laonog.admin.auth.biz.converter.sysuser;
 
 import com.laonog.admin.auth.dal.entity.sysuser.SysUserDO;
-import com.laonog.auth.api.facade.sysuser.com.laonog.auth.api.vos.sysuser.SysUserVO;
+import com.laonog.auth.api.vos.sysuser.SysUserVO;
 
 import java.util.ArrayList;
 import java.util.List;

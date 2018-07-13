@@ -8,7 +8,7 @@ import com.laonog.admin.common.response.ListRestResponse;
 import com.laonog.admin.common.response.ObjectRestResponse;
 import com.laonog.admin.common.response.TableResultResponse;
 import com.laonog.auth.api.facade.sysuser.SysUserClient;
-import com.laonog.auth.api.facade.sysuser.com.laonog.auth.api.vos.sysuser.SysUserVO;
+import com.laonog.auth.api.vos.sysuser.SysUserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 

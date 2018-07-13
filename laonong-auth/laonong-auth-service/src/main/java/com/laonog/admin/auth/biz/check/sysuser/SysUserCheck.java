@@ -1,9 +1,9 @@
 package com.laonog.admin.auth.biz.check.sysuser;
 
-import com.laonog.admin.auth.common.constants.com.laonog.admin.auth.common.enums.ErrorCodeEnum;
-import com.laonog.admin.auth.common.constants.com.laonog.admin.auth.common.enums.SuccessCodeEnum;
+import com.laonog.admin.auth.common.enums.ErrorCodeEnum;
+import com.laonog.admin.auth.common.enums.SuccessCodeEnum;
 import com.laonog.admin.common.response.CheckResponse;
-import com.laonog.auth.api.facade.sysuser.com.laonog.auth.api.vos.sysuser.SysUserVO;
+import com.laonog.auth.api.vos.sysuser.SysUserVO;
 import org.springframework.util.StringUtils;
 
 /**

@@ -3,7 +3,7 @@ package com.laonog.admin.auth.biz.service.impl.sysuser;
 import com.laonog.admin.auth.biz.service.sysuser.SysUserService;
 import com.laonog.admin.auth.dal.query.sysuser.SysUserQuery;
 import com.laonog.admin.common.response.TableResultResponse;
-import com.laonog.auth.api.facade.sysuser.com.laonog.auth.api.vos.sysuser.SysUserVO;
+import com.laonog.auth.api.vos.sysuser.SysUserVO;
 import org.springframework.stereotype.Service;
 import com.laonog.admin.auth.dal.entity.sysuser.SysUserDO;
 import com.laonog.admin.auth.dal.dao.sysuser.SysUserDAO;

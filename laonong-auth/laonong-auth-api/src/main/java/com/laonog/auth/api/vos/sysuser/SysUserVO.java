@@ -1,4 +1,4 @@
-package com.laonog.auth.api.facade.sysuser.com.laonog.auth.api.vos.sysuser;
+package com.laonog.auth.api.vos.sysuser;
 
 import java.io.Serializable;
 import java.util.Date;

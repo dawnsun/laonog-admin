@@ -1,4 +1,4 @@
-package com.laonog.admin.auth.common.constants.com.laonog.admin.auth.common.enums;
+package com.laonog.admin.auth.common.enums;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -20,7 +20,9 @@ public enum ErrorCodeEnum {
 
     DELETE_ERROR("delete error", "删除失败"),
 
-    SYSTEM_ERROR("system error", "系统异常");
+    SYSTEM_ERROR("system error", "系统异常"),
+
+    PARAM_IS_EMPTY("param empty", "参数为空" );
 
     private String errorCode;
 
