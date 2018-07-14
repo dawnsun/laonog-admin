@@ -146,7 +146,7 @@ public class SysUserServiceImpl implements SysUserService {
             Long count = sysUserDAO.getSysUserCount(sysUserQuery);
             List<SysUserDO> sysUserDOList = sysUserDAO.getSysUserList(sysUserQuery);
             sysUserVOList = SysUserConverter.convertDOs2VOs(sysUserDOList);
-            return new TableResultResponse<SysUserVO>("",count,sysUserVOList);
+            return new TableResultResponse<SysUserVO>("",sysUserQuery.getPageNo(), sysUserQuery.getPageSize(), count, sysUserVOList);
         } catch (Exception e) {
             logger.error("SysUserService getSysUserPage " + e);
             return null;

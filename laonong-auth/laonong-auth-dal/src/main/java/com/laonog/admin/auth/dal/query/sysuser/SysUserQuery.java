@@ -1,5 +1,7 @@
 package com.laonog.admin.auth.dal.query.sysuser;
 
+import com.laonog.admin.common.query.BaseQuery;
+
 import java.util.Date;
 
 /**
@@ -9,7 +11,7 @@ import java.util.Date;
  * @email scg16@126.com
  * @date 2018-07-09 18:45:59
  */
-public class SysUserQuery {
+public class SysUserQuery extends BaseQuery {
 
     //
     private Long id;

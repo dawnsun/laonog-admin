@@ -1,5 +1,8 @@
 package com.laonog.admin.auth.biz.check.sysuser;
 
+import com.laonog.admin.auth.dal.query.sysuser.SysUserQuery;
+import com.laonog.admin.common.constant.CommonConstants;
+import com.laonog.admin.common.constant.DataStateConstants;
 import com.laonog.admin.common.response.CheckResponse;
 import com.laonog.auth.api.vos.sysuser.SysUserVO;
 import org.apache.commons.lang.StringUtils;
@@ -43,7 +46,9 @@ public class SysUserCheck {
                 SysUserCodeEnum.PHONE_NUMBER_EMPTY
                     .getMessage());
         }
-
+        sysUserVO.setCreator("creator");
+        sysUserVO.setModifier("creator");
+        sysUserVO.setIsDelete(DataStateConstants.IS_DELETED);
         return new CheckResponse(SuccessCodeEnum.PAREAM_CHEKC.getSuccessMessage());
     }
 
@@ -78,7 +83,8 @@ public class SysUserCheck {
                 SysUserCodeEnum.PHONE_NUMBER_EMPTY.getCode(),
                 SysUserCodeEnum.PHONE_NUMBER_EMPTY.getMessage());
         }
-
+        sysUserVO.setModifier("modifier");
+        sysUserVO.setIsDelete(DataStateConstants.IS_DELETED);
         return new CheckResponse(SuccessCodeEnum.PAREAM_CHEKC.getSuccessMessage());
     }
 
@@ -93,6 +99,40 @@ public class SysUserCheck {
             return new CheckResponse(ErrorCodeEnum.PARAM_IS_EMPTY.getErrorCode(),
                 ErrorCodeEnum.PARAM_IS_EMPTY.getErrorMessage());
         }
+        return new CheckResponse(SuccessCodeEnum.PAREAM_CHEKC.getSuccessMessage());
+    }
+
+    /**
+     * 列表查询数据校验
+     *
+     * @param sysUserQuery
+     * @return
+     */
+    public static CheckResponse checkListPaream(SysUserQuery sysUserQuery) {
+        if (null == sysUserQuery) {
+            return new CheckResponse(ErrorCodeEnum.PARAM_IS_EMPTY.getErrorCode(),
+                ErrorCodeEnum.PARAM_IS_EMPTY.getErrorMessage());
+        }
+        sysUserQuery.setIsDelete(DataStateConstants.IS_DELETED);
+        return new CheckResponse(SuccessCodeEnum.PAREAM_CHEKC.getSuccessMessage());
+    }
+
+    /**
+     * 分页查询数据校验
+     *
+     * @param sysUserQuery
+     * @return
+     */
+    public static CheckResponse checkPagePaream(SysUserQuery sysUserQuery) {
+        if (null == sysUserQuery) {
+            return new CheckResponse(ErrorCodeEnum.PARAM_IS_EMPTY.getErrorCode(),
+                ErrorCodeEnum.PARAM_IS_EMPTY.getErrorMessage());
+        }
+        if(sysUserQuery.getPageNo() == 0 || sysUserQuery.getPageSize()==0){
+            sysUserQuery.setPageNo(CommonConstants.DEFAULT_PAGE_NO);
+            sysUserQuery.setPageSize(CommonConstants.DEFAULT_PAGE_SIZE);
+        }
+        sysUserQuery.setIsDelete(DataStateConstants.IS_DELETED);
         return new CheckResponse(SuccessCodeEnum.PAREAM_CHEKC.getSuccessMessage());
     }
 }

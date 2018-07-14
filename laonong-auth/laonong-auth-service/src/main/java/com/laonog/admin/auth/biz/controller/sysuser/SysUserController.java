@@ -27,15 +27,12 @@ public class SysUserController implements SysUserClient {
     private SysUserService sysUserService;
 
     @Override
-    public ObjectRestResponse<SysUserVO> insertSysUser(@RequestBody SysUserVO sysUserVO) {
+    public ObjectRestResponse<SysUserVO> insertSysUser(SysUserVO sysUserVO) {
         CheckResponse checkResponse = SysUserCheck.checkInsertPaream(sysUserVO);
         if(checkResponse.isRel()){
             return new ObjectRestResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
         }
-        sysUserVO.setCreator("creator");
-        sysUserVO.setModifier("modifier");
         sysUserVO.setUserStatus(DataStateConstants.USERSTATUS_LOCK);
-        sysUserVO.setIsDelete(DataStateConstants.IS_DELETED);
         boolean result = sysUserService.insertSysUser(sysUserVO);
         if(result){
             return new ObjectRestResponse<SysUserVO>(SuccessCodeEnum.INSERT_SUCCESS.getSuccessMessage(),sysUserVO);
@@ -53,7 +50,6 @@ public class SysUserController implements SysUserClient {
         }
         SysUserVO sysUserVO = new SysUserVO();
         sysUserVO.setId(id);
-        sysUserVO.setIsDelete(DataStateConstants.DELETED);
         boolean result = sysUserService.deleteSysUser(sysUserVO);
         if(result){
             return new ObjectRestResponse<Boolean>(SuccessCodeEnum.DELETE_SUCCESS.getSuccessMessage(),result);
@@ -63,15 +59,19 @@ public class SysUserController implements SysUserClient {
     }
 
     @Override
-    public ObjectRestResponse<SysUserVO> updateSysUser(@RequestBody SysUserVO sysUserVO) {
+    public ObjectRestResponse<SysUserVO> updateSysUser(SysUserVO sysUserVO) {
         CheckResponse checkResponse = SysUserCheck.checkUpdatePaream(sysUserVO);
         if(checkResponse.isRel()){
             return new ObjectRestResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
         }
-        sysUserVO.setCreator("creator");
-        sysUserVO.setModifier("modifier");
+        SysUserQuery sysUserQuery = new SysUserQuery();
+        sysUserQuery.setId(sysUserVO.getId());
+        sysUserQuery.setIsDelete(DataStateConstants.IS_DELETED);
+        SysUserVO sysUserVOOld = sysUserService.getSysUser(sysUserQuery);
+        if(null == sysUserVOOld){
+            return new ObjectRestResponse<SysUserVO>(ErrorCodeEnum.UPDATE_ERROR.getErrorCode(),ErrorCodeEnum.UPDATE_ERROR.getErrorMessage(),sysUserVO);
+        }
         sysUserVO.setUserStatus(DataStateConstants.USERSTATUS_LOCK);
-        sysUserVO.setIsDelete(DataStateConstants.IS_DELETED);
         boolean result = sysUserService.updateSysUser(sysUserVO);
         if(result){
             return new ObjectRestResponse<SysUserVO>(SuccessCodeEnum.UPDATE_SUCCESS.getSuccessMessage(),sysUserVO);
@@ -98,13 +98,17 @@ public class SysUserController implements SysUserClient {
     }
 
     @Override
-    public ListRestResponse<List<SysUserVO>> getSysUserList(@RequestBody SysUserQuery sysUserQuery) {
+    public ListRestResponse<List<SysUserVO>> getSysUserList(SysUserQuery sysUserQuery) {
         return null;
     }
 
     @Override
     public TableResultResponse<SysUserVO> getSysUserPage(@RequestBody SysUserQuery sysUserQuery) {
-        return null;
+        CheckResponse checkResponse = SysUserCheck.checkPagePaream(sysUserQuery);
+        if(checkResponse.isRel()){
+            return new TableResultResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
+        }
+        return sysUserService.getSysUserPage(sysUserQuery);
     }
 
 }

@@ -294,7 +294,7 @@
             </if>
         </where>
         order by gmt_modified desc
-        limit #{offset},#{limit}
+        limit #{offset},#{pageSize}
     </select>
 
 </mapper>
