@@ -2,12 +2,9 @@ spring:
     application:
         name: laonong-auth
 
-    server:
-        port: 8081 #启动端口
-
     datasource:  #mysql和阿里druid配置
          type: com.alibaba.druid.pool.DruidDataSource
-         url: jdbc:mysql://localhost/ag_auth?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+         url: jdbc:mysql://localhost/laonong-admin?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
          username: root
          password: root
          driver-class-name: com.mysql.jdbc.Driver
@@ -35,6 +32,9 @@ spring:
          connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
          # 合并多个DruidDataSource的监控数据
          useGlobalDataSourceStat: true
+
+server:
+    port: 8081 #启动端口
 
 eureka:
     instance:

@@ -25,7 +25,7 @@ public interface SysUserClient {
      * @return
      */
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-    ObjectRestResponse<Boolean> deleteSysUser(@RequestParam("id") Long id);
+    ObjectRestResponse<Boolean> deleteSysUser(@PathVariable("id") Long id);
 
     /**
      * 修改

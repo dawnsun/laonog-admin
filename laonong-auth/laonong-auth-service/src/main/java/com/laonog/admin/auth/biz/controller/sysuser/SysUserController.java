@@ -13,6 +13,9 @@ import com.laonog.admin.common.response.TableResultResponse;
 import com.laonog.auth.api.facade.sysuser.SysUserClient;
 import com.laonog.auth.api.vos.sysuser.SysUserVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,7 +27,7 @@ public class SysUserController implements SysUserClient {
     private SysUserService sysUserService;
 
     @Override
-    public ObjectRestResponse<SysUserVO> insertSysUser(SysUserVO sysUserVO) {
+    public ObjectRestResponse<SysUserVO> insertSysUser(@RequestBody SysUserVO sysUserVO) {
         CheckResponse checkResponse = SysUserCheck.checkInsertPaream(sysUserVO);
         if(checkResponse.isRel()){
             return new ObjectRestResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
@@ -43,7 +46,7 @@ public class SysUserController implements SysUserClient {
     }
 
     @Override
-    public ObjectRestResponse<Boolean> deleteSysUser(Long id) {
+    public ObjectRestResponse<Boolean> deleteSysUser(@PathVariable Long id) {
         CheckResponse checkResponse = SysUserCheck.checkPareamKey(id);
         if(checkResponse.isRel()){
             return new ObjectRestResponse<Boolean>(checkResponse.getErrorCode(),checkResponse.getMsg());
@@ -60,7 +63,7 @@ public class SysUserController implements SysUserClient {
     }
 
     @Override
-    public ObjectRestResponse<SysUserVO> updateSysUser(SysUserVO sysUserVO) {
+    public ObjectRestResponse<SysUserVO> updateSysUser(@RequestBody SysUserVO sysUserVO) {
         CheckResponse checkResponse = SysUserCheck.checkUpdatePaream(sysUserVO);
         if(checkResponse.isRel()){
             return new ObjectRestResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
@@ -78,7 +81,7 @@ public class SysUserController implements SysUserClient {
     }
 
     @Override
-    public ObjectRestResponse<SysUserVO> getSysUser(Long id) {
+    public ObjectRestResponse<SysUserVO> getSysUser(@PathVariable Long id) {
         CheckResponse checkResponse = SysUserCheck.checkPareamKey(id);
         if(checkResponse.isRel()){
             return new ObjectRestResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
@@ -95,12 +98,12 @@ public class SysUserController implements SysUserClient {
     }
 
     @Override
-    public ListRestResponse<List<SysUserVO>> getSysUserList(SysUserQuery sysUserQuery) {
+    public ListRestResponse<List<SysUserVO>> getSysUserList(@RequestBody SysUserQuery sysUserQuery) {
         return null;
     }
 
     @Override
-    public TableResultResponse<SysUserVO> getSysUserPage(SysUserQuery sysUserQuery) {
+    public TableResultResponse<SysUserVO> getSysUserPage(@RequestBody SysUserQuery sysUserQuery) {
         return null;
     }
 
