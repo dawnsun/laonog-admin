@@ -27,7 +27,7 @@ public class SysUserController implements SysUserClient {
     private SysUserService sysUserService;
 
     @Override
-    public ObjectRestResponse<SysUserVO> insertSysUser(SysUserVO sysUserVO) {
+    public ObjectRestResponse<SysUserVO> insertSysUser(@RequestBody SysUserVO sysUserVO) {
         CheckResponse checkResponse = SysUserCheck.checkInsertPaream(sysUserVO);
         if(checkResponse.isRel()){
             return new ObjectRestResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
@@ -59,7 +59,7 @@ public class SysUserController implements SysUserClient {
     }
 
     @Override
-    public ObjectRestResponse<SysUserVO> updateSysUser(SysUserVO sysUserVO) {
+    public ObjectRestResponse<SysUserVO> updateSysUser(@RequestBody SysUserVO sysUserVO) {
         CheckResponse checkResponse = SysUserCheck.checkUpdatePaream(sysUserVO);
         if(checkResponse.isRel()){
             return new ObjectRestResponse<SysUserVO>(checkResponse.getErrorCode(),checkResponse.getMsg());
@@ -98,7 +98,7 @@ public class SysUserController implements SysUserClient {
     }
 
     @Override
-    public ListRestResponse<List<SysUserVO>> getSysUserList(SysUserQuery sysUserQuery) {
+    public ListRestResponse<List<SysUserVO>> getSysUserList(@RequestBody SysUserQuery sysUserQuery){
         return null;
     }
 

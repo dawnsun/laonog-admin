@@ -48,7 +48,7 @@ public interface SysUserClient {
      * @param sysUserQuery
      * @return
      */
-    @RequestMapping(value = "/list",method = RequestMethod.POST)
+    @RequestMapping(value = "/list/{id}",method = RequestMethod.POST)
     ListRestResponse<List<SysUserVO>> getSysUserList(@RequestBody SysUserQuery sysUserQuery);
 
     /**
@@ -56,6 +56,6 @@ public interface SysUserClient {
      * @param sysUserQuery
      * @return
      */
-    @RequestMapping(value = "/page",method = RequestMethod.POST)
+    @RequestMapping(value = "/page/{id}",method = RequestMethod.POST)
     TableResultResponse<SysUserVO> getSysUserPage(@RequestBody SysUserQuery sysUserQuery);
 }
