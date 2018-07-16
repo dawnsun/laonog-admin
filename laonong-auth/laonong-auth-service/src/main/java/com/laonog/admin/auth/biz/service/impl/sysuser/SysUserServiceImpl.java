@@ -1,6 +1,8 @@
 package com.laonog.admin.auth.biz.service.impl.sysuser;
 
 import com.laonog.admin.auth.biz.service.sysuser.SysUserService;
+import com.laonog.admin.auth.common.enums.ErrorCodeEnum;
+import com.laonog.admin.auth.common.enums.SuccessCodeEnum;
 import com.laonog.admin.auth.dal.query.sysuser.SysUserQuery;
 import com.laonog.admin.common.response.TableResultResponse;
 import com.laonog.auth.api.vos.sysuser.SysUserVO;
@@ -40,15 +42,12 @@ public class SysUserServiceImpl implements SysUserService {
             SysUserDO sysUserDO = SysUserConverter.convertVO2DO(sysUserVO);
             Integer id = sysUserDAO.insertSysUser(sysUserDO);
             if(id>0){
-                    sysUserVO = SysUserConverter.convertDO2VO(sysUserDO);
                 return true;
             }else{
-                    sysUserVO = null;
                 return false;
             }
         } catch (Exception e) {
             logger.error("SysUserService insertSysUser " + e);
-                sysUserVO = null;
             return false;
         }
     }
@@ -106,10 +105,8 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public SysUserVO getSysUser(SysUserQuery sysUserQuery){
         try{
-            SysUserVO sysUserVO = new SysUserVO();
             SysUserDO sysUserDO = sysUserDAO.getSysUser(sysUserQuery);
-            sysUserVO = SysUserConverter.convertDO2VO(sysUserDO);
-            return sysUserVO;
+            return SysUserConverter.convertDO2VO(sysUserDO);
         } catch (Exception e) {
             logger.error("SysUserService getSysUser " + e);
             return null;
@@ -124,10 +121,8 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public List<SysUserVO> getSysUserList(SysUserQuery sysUserQuery){
         try{
-            List<SysUserVO> sysUserVOList = new ArrayList<>();
             List<SysUserDO> sysUserDOList = sysUserDAO.getSysUserList(sysUserQuery);
-            sysUserVOList = SysUserConverter.convertDOs2VOs(sysUserDOList);
-            return sysUserVOList;
+            return SysUserConverter.convertDOs2VOs(sysUserDOList);
         } catch (Exception e) {
             logger.error("SysUserService getSysUserList " + e);
             return null;
@@ -146,10 +141,10 @@ public class SysUserServiceImpl implements SysUserService {
             Long count = sysUserDAO.getSysUserCount(sysUserQuery);
             List<SysUserDO> sysUserDOList = sysUserDAO.getSysUserPage(sysUserQuery);
             sysUserVOList = SysUserConverter.convertDOs2VOs(sysUserDOList);
-            return new TableResultResponse<SysUserVO>("",sysUserQuery.getPageNo(), sysUserQuery.getPageSize(), count, sysUserVOList);
+            return new TableResultResponse<>(SuccessCodeEnum.QUERY_PAGE_SUCCESS.getSuccessMessage(),sysUserQuery.getPageNo(), sysUserQuery.getPageSize(), count, sysUserVOList);
         } catch (Exception e) {
             logger.error("SysUserService getSysUserPage " + e);
-            return null;
+            return new TableResultResponse<>(ErrorCodeEnum.QUERY_PAGE_ERROR.getErrorCode(),ErrorCodeEnum.QUERY_PAGE_ERROR.getErrorMessage());
         }
     }
 }

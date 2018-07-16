@@ -20,14 +20,14 @@ public interface SysUserService {
      * @param sysUserVO
      * @return
      */
-    public Boolean insertSysUser(SysUserVO sysUserVO);
+    Boolean insertSysUser(SysUserVO sysUserVO);
 
     /**
      * 删除
      * @param sysUserVO
      * @return
      */
-    public Boolean deleteSysUser(SysUserVO sysUserVO);
+    Boolean deleteSysUser(SysUserVO sysUserVO);
 
     /**
      * 修改
@@ -41,7 +41,7 @@ public interface SysUserService {
      * @param sysUserQuery
      * @return
      */
-    public SysUserVO getSysUser(SysUserQuery sysUserQuery);
+    SysUserVO getSysUser(SysUserQuery sysUserQuery);
 
     /**
      * 查询列表
@@ -55,5 +55,5 @@ public interface SysUserService {
      * @param sysUserQuery
      * @return
      */
-    public TableResultResponse<SysUserVO> getSysUserPage(SysUserQuery sysUserQuery);
+    TableResultResponse<SysUserVO> getSysUserPage(SysUserQuery sysUserQuery);
 }

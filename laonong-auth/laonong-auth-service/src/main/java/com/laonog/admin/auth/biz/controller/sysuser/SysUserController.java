@@ -15,7 +15,6 @@ import com.laonog.auth.api.vos.sysuser.SysUserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -47,6 +46,13 @@ public class SysUserController implements SysUserClient {
         CheckResponse checkResponse = SysUserCheck.checkPareamKey(id);
         if(checkResponse.isRel()){
             return new ObjectRestResponse<>(checkResponse.getErrorCode(),checkResponse.getMsg());
+        }
+        SysUserQuery sysUserQuery = new SysUserQuery();
+        sysUserQuery.setId(id);
+        sysUserQuery.setIsDelete(DataStateConstants.IS_DELETED);
+        SysUserVO sysUserVOOld = sysUserService.getSysUser(sysUserQuery);
+        if(null == sysUserVOOld){
+            return new ObjectRestResponse<>(ErrorCodeEnum.DELETE_ERROR.getErrorCode(),ErrorCodeEnum.DELETE_ERROR.getErrorMessage(),Boolean.FALSE);
         }
         SysUserVO sysUserVO = new SysUserVO();
         sysUserVO.setId(id);

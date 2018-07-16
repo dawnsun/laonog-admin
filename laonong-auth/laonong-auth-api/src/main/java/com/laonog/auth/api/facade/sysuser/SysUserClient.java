@@ -7,8 +7,6 @@ import com.laonog.admin.common.response.TableResultResponse;
 import com.laonog.auth.api.vos.sysuser.SysUserVO;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RequestMapping("sysUser")
 public interface SysUserClient {
     /**

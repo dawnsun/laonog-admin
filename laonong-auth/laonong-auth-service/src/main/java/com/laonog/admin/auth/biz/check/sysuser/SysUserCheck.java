@@ -3,10 +3,8 @@ package com.laonog.admin.auth.biz.check.sysuser;
 import com.laonog.admin.auth.dal.query.sysuser.SysUserQuery;
 import com.laonog.admin.common.constant.CommonConstants;
 import com.laonog.admin.common.constant.DataStateConstants;
-import com.laonog.admin.common.query.BaseQuery;
 import com.laonog.admin.common.response.CheckResponse;
 import com.laonog.auth.api.vos.sysuser.SysUserVO;
-import org.apache.commons.lang.StringUtils;
 import com.laonog.admin.auth.common.enums.ErrorCodeEnum;
 import com.laonog.admin.auth.common.enums.SuccessCodeEnum;
 import com.laonog.admin.auth.common.enums.sysuser.SysUserCodeEnum;
@@ -132,7 +130,6 @@ public class SysUserCheck {
         }else {
             sysUserQuery.setOffset((sysUserQuery.getPageNo()-1)*sysUserQuery.getPageSize());
         }
-
         sysUserQuery.setIsDelete(DataStateConstants.IS_DELETED);
         return new CheckResponse(SuccessCodeEnum.PAREAM_CHEKC.getSuccessMessage());
     }

@@ -22,7 +22,10 @@ public enum ErrorCodeEnum {
 
     SYSTEM_ERROR("system error", "系统异常"),
 
-    PARAM_IS_EMPTY("param empty", "参数为空" );
+    PARAM_IS_EMPTY("param empty", "参数为空" ),
+
+    QUERY_PAGE_ERROR("query page error", "分页查询失败"),
+    ;
 
     private String errorCode;
 
