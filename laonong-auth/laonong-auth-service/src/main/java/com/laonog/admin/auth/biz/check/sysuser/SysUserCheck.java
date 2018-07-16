@@ -3,6 +3,7 @@ package com.laonog.admin.auth.biz.check.sysuser;
 import com.laonog.admin.auth.dal.query.sysuser.SysUserQuery;
 import com.laonog.admin.common.constant.CommonConstants;
 import com.laonog.admin.common.constant.DataStateConstants;
+import com.laonog.admin.common.query.BaseQuery;
 import com.laonog.admin.common.response.CheckResponse;
 import com.laonog.auth.api.vos.sysuser.SysUserVO;
 import org.apache.commons.lang.StringUtils;
@@ -109,10 +110,6 @@ public class SysUserCheck {
      * @return
      */
     public static CheckResponse checkListPaream(SysUserQuery sysUserQuery) {
-        if (null == sysUserQuery) {
-            return new CheckResponse(ErrorCodeEnum.PARAM_IS_EMPTY.getErrorCode(),
-                ErrorCodeEnum.PARAM_IS_EMPTY.getErrorMessage());
-        }
         sysUserQuery.setIsDelete(DataStateConstants.IS_DELETED);
         return new CheckResponse(SuccessCodeEnum.PAREAM_CHEKC.getSuccessMessage());
     }
@@ -128,10 +125,14 @@ public class SysUserCheck {
             return new CheckResponse(ErrorCodeEnum.PARAM_IS_EMPTY.getErrorCode(),
                 ErrorCodeEnum.PARAM_IS_EMPTY.getErrorMessage());
         }
-        if(sysUserQuery.getPageNo() == 0 || sysUserQuery.getPageSize()==0){
+        if(null == sysUserQuery.getPageSize() || null == sysUserQuery.getPageNo()){
             sysUserQuery.setPageNo(CommonConstants.DEFAULT_PAGE_NO);
             sysUserQuery.setPageSize(CommonConstants.DEFAULT_PAGE_SIZE);
+            sysUserQuery.setOffset(CommonConstants.DEFAULT_PAGE_SORT);
+        }else {
+            sysUserQuery.setOffset((sysUserQuery.getPageNo()-1)*sysUserQuery.getPageSize());
         }
+
         sysUserQuery.setIsDelete(DataStateConstants.IS_DELETED);
         return new CheckResponse(SuccessCodeEnum.PAREAM_CHEKC.getSuccessMessage());
     }

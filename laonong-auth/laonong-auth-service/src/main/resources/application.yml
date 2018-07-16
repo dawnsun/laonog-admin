@@ -41,7 +41,7 @@ eureka:
         leaseRenewalIntervalInSeconds: 10 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒
     client:
     serviceUrl:
-        defaultZone: http://localhost:8761/eureka/
+        defaultZone: http://localhost:8766/eureka/
         registryFetchIntervalSeconds: 5 #从eureka服务器注册表中获取注册信息的时间间隔（s），默认为30秒
 
 #请求和响应GZIP压缩支持
@@ -73,5 +73,8 @@ mybatis:
     local-cache-scope: session                          #设置本地缓存范围 session:就会有数据的共享  statement:语句范围 (多个SqlSession或者分布式的环境下使用，避免脏读 ) defalut:session
     jdbc-type-for-null: null                            #设置但JDBC类型为空时,某些驱动程序 要指定值,default:OTHER，插入空值时不需要指定类型
 
-
+# 打印sql
+logging:
+  level:
+    com.laonog.admin.auth.dal.dao: DEBUG
 

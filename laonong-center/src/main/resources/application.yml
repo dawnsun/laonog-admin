@@ -3,7 +3,7 @@ spring:
         name: laonong-center
 
 server:
-    port: 8761 #启动端口
+    port: 8766 #启动端口
 
 eureka:
     client:

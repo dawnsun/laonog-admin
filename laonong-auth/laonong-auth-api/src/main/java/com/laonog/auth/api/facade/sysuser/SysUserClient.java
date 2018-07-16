@@ -48,14 +48,14 @@ public interface SysUserClient {
      * @param sysUserQuery
      * @return
      */
-    @RequestMapping(value = "/list/{id}",method = RequestMethod.POST)
-    ListRestResponse<List<SysUserVO>> getSysUserList(@RequestBody SysUserQuery sysUserQuery);
+    @RequestMapping(value = "/list",method = RequestMethod.POST)
+    ListRestResponse<SysUserVO> getSysUserList(@RequestBody SysUserQuery sysUserQuery);
 
     /**
      * 查询分页
      * @param sysUserQuery
      * @return
      */
-    @RequestMapping(value = "/page/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/page",method = RequestMethod.POST)
     TableResultResponse<SysUserVO> getSysUserPage(@RequestBody SysUserQuery sysUserQuery);
 }
