@@ -16,6 +16,8 @@ public enum SuccessCodeEnum {
 
     DELETE_SUCCESS("delete success", "删除成功"),
 
+    LOGIN_SUCCESS("login success", "登录成功"),
+
     QUERY_PAGE_SUCCESS("query page success", "分页查询成功"),
 
     ;

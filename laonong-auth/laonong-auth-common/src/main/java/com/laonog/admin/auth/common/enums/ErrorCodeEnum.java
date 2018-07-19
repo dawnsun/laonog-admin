@@ -25,6 +25,8 @@ public enum ErrorCodeEnum {
     PARAM_IS_EMPTY("param empty", "参数为空" ),
 
     QUERY_PAGE_ERROR("query page error", "分页查询失败"),
+
+    LOGIN_ERROR("login error","用户名密码不正确")
     ;
 
     private String errorCode;
