@@ -1,3 +1,4 @@
+/*
 package com.laonog.auth.api.facade.sysuser;
 
 import com.laonog.admin.common.response.ObjectRestResponse;
@@ -9,12 +10,13 @@ import java.util.Map;
 
 public interface LoginClient {
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/sys/login",method = RequestMethod.POST)
     ObjectRestResponse<OAuth2AccessToken> login(@RequestParam Map<String, String> parameters);
 
-    @RequestMapping(value = "/logouting",method = RequestMethod.GET)
+    @RequestMapping(value = "/sys/logouting",method = RequestMethod.GET)
     ObjectRestResponse<Boolean> logouting(@PathVariable("accessToken") String accessToken);
 
-    @RequestMapping(value = "/registry",method = RequestMethod.POST)
+    @RequestMapping(value = "/sys/registry",method = RequestMethod.POST)
     ObjectRestResponse<SysUserVO> registry(@RequestBody SysUserVO sysUserVO);
 }
+*/

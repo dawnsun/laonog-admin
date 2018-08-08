@@ -1,3 +1,4 @@
+/*
 package com.laonog.admin.auth.config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -78,3 +79,4 @@ public class LaonogUserDetails implements UserDetails {
             '}';
     }
 }
+*/

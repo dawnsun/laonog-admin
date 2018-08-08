@@ -1,11 +1,14 @@
+/*
 package com.laonog.admin.auth.biz.service.impl.security;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.ClientRegistrationException;
 import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 import org.springframework.stereotype.Service;
 
+*/
 /**
  * String clientId, String resourceIds, String scopes, String grantTypes, String authorities, String redirectUris
  * clientId、secret、scope、authorizedGrantTypes、authorities
@@ -16,7 +19,8 @@ import org.springframework.stereotype.Service;
  * Client Credentials (用來取得 App Access Token)
  * Resource Owner Password Credentials
  （3）authorities：授予client的权限
- */
+ *//*
+
 @Service
 public class SecurityClientDetailsServiceImpl implements ClientDetailsService {
     @Override
@@ -32,7 +36,7 @@ public class SecurityClientDetailsServiceImpl implements ClientDetailsService {
         //String clientSecret=clientDetailsDO.getClientSecret();
         String resourceIds = "test";
         String scopes = "test";
-        String grantTypes = "test";
+        String grantTypes = "password";
         String authorities = "test";
         String redirectUris = "test";
             Integer refreshTokenVa = 1;
@@ -43,9 +47,9 @@ public class SecurityClientDetailsServiceImpl implements ClientDetailsService {
             BaseClientDetails baseClientDetails = new BaseClientDetails(clientId,resourceIds,scopes,grantTypes,authorities,redirectUris);
         baseClientDetails.setRefreshTokenValiditySeconds(refreshTokenValiditySeconds);
         baseClientDetails.setAccessTokenValiditySeconds(accessTokenValiditySeconds);
-        baseClientDetails.setClientSecret(clientSecret);
+        baseClientDetails.setClientSecret(new BCryptPasswordEncoder().encode(clientSecret));
         baseClientDetails.setClientId("webapp");
-        baseClientDetails.setClientSecret("webapp");
         return baseClientDetails;
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.laonog.admin.auth.biz.controller.sysuser;
 
 import com.laonog.admin.auth.biz.check.sysuser.SysUserCheck;
@@ -96,3 +97,4 @@ public class LoginController implements LoginClient {
     }
 
 }
+*/
