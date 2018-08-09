@@ -1,3 +1,4 @@
+/*
 package com.laonog.admin.auth.biz.service.impl.security;
 
 import com.laonog.admin.auth.config.LaonogUserDetails;
@@ -23,3 +24,4 @@ public class SecurityUserDetailsServiceImpl implements UserDetailsService {
         return userDO;
     }
 }
+*/

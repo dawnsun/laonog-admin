@@ -1,3 +1,4 @@
+/*
 package com.laonog.admin.auth.biz.service.impl.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,11 @@ import org.springframework.util.AntPathMatcher;
 import java.util.Collection;
 import java.util.List;
 
+*/
 /**
  * Created by sang on 2017/12/28.
- */
+ *//*
+
 @Component
 public class UrlFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
     //@Autowired
@@ -54,3 +57,4 @@ public class UrlFilterInvocationSecurityMetadataSource implements FilterInvocati
         return FilterInvocation.class.isAssignableFrom(aClass);
     }
 }
+*/
