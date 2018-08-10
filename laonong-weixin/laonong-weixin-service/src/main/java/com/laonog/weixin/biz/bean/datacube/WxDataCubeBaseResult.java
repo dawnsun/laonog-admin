@@ -2,8 +2,8 @@ package com.laonog.weixin.biz.bean.datacube;
 
 import com.google.gson.JsonParser;
 import com.google.gson.annotations.SerializedName;
+import com.laonog.weixin.util.ToStringUtils;
 import lombok.Data;
-import me.chanjar.weixin.common.util.ToStringUtils;
 
 import java.io.Serializable;
 

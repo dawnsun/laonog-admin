@@ -17,10 +17,11 @@
  */
 package com.laonog.weixin.biz.util.crypto;
 
-import me.chanjar.weixin.mp.api.WxMpConfigStorage;
+import com.laonog.weixin.biz.service.WxMpConfigStorage;
+import com.laonog.weixin.util.crypto.WxCryptUtil;
 import org.apache.commons.codec.binary.Base64;
 
-public class WxMpCryptUtil extends me.chanjar.weixin.common.util.crypto.WxCryptUtil {
+public class WxMpCryptUtil extends WxCryptUtil {
 
   /**
    * 构造函数

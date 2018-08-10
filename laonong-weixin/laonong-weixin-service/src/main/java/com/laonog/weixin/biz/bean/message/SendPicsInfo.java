@@ -3,8 +3,8 @@ package com.laonog.weixin.biz.bean.message;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import lombok.Data;
-import me.chanjar.weixin.common.util.ToStringUtils;
-import me.chanjar.weixin.common.util.xml.XStreamCDataConverter;
+import com.laonog.weixin.util.ToStringUtils;
+import com.laonog.weixin.util.xml.XStreamCDataConverter;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -3,7 +3,7 @@ package com.laonog.weixin.biz.bean.wifi;
 import com.google.gson.JsonParser;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
+import com.laonog.weixin.biz.util.json.WxMpGsonBuilder;
 
 import java.util.List;
 

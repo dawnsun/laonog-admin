@@ -2,9 +2,9 @@ package com.laonog.weixin.biz.bean.datacube;
 
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.laonog.weixin.biz.util.json.WxMpGsonBuilder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 import java.util.List;
 

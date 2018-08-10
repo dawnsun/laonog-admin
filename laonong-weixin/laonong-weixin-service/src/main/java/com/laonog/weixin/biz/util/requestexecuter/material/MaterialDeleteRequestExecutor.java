@@ -1,7 +1,7 @@
 package com.laonog.weixin.biz.util.requestexecuter.material;
 
-import me.chanjar.weixin.common.util.http.RequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestHttp;
+import com.laonog.weixin.util.http.RequestExecutor;
+import com.laonog.weixin.util.http.RequestHttp;
 
 public abstract class MaterialDeleteRequestExecutor<H, P> implements RequestExecutor<Boolean, String> {
   protected RequestHttp<H, P> requestHttp;

@@ -1,8 +1,7 @@
 package com.laonog.weixin.biz.bean;
 
-
+import com.laonog.weixin.util.ToStringUtils;
 import lombok.Data;
-import me.chanjar.weixin.common.util.ToStringUtils;
 
 import java.io.Serializable;
 

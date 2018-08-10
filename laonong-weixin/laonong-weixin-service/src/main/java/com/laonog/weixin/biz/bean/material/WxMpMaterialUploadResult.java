@@ -1,8 +1,8 @@
 package com.laonog.weixin.biz.bean.material;
 
 import lombok.Data;
-import me.chanjar.weixin.common.util.ToStringUtils;
-import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
+import com.laonog.weixin.util.ToStringUtils;
+import com.laonog.weixin.biz.util.json.WxMpGsonBuilder;
 
 import java.io.Serializable;
 

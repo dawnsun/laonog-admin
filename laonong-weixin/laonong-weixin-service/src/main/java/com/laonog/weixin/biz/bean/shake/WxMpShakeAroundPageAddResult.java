@@ -1,9 +1,9 @@
 package com.laonog.weixin.biz.bean.shake;
 
 import com.google.gson.JsonObject;
+import com.laonog.weixin.biz.util.json.WxMpGsonBuilder;
+import com.laonog.weixin.util.json.GsonHelper;
 import lombok.Data;
-import me.chanjar.weixin.common.util.json.GsonHelper;
-import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 import java.io.Serializable;
 

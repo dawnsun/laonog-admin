@@ -1,11 +1,11 @@
 package com.laonog.weixin.biz.bean.menu;
 
 import com.google.gson.annotations.SerializedName;
+import com.laonog.weixin.bean.WxMenuButton;
+import com.laonog.weixin.bean.WxMenuRule;
+import com.laonog.weixin.util.ToStringUtils;
+import com.laonog.weixin.util.json.WxGsonBuilder;
 import lombok.Data;
-import me.chanjar.weixin.common.bean.menu.WxMenuButton;
-import me.chanjar.weixin.common.bean.menu.WxMenuRule;
-import me.chanjar.weixin.common.util.ToStringUtils;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
 
 import java.io.Serializable;
 import java.util.List;

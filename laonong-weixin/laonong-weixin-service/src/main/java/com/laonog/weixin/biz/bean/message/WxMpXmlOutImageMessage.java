@@ -1,11 +1,11 @@
 package com.laonog.weixin.biz.bean.message;
 
+import com.laonog.weixin.WxConsts;
+import com.laonog.weixin.util.xml.XStreamMediaIdConverter;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import me.chanjar.weixin.common.api.WxConsts;
-import me.chanjar.weixin.common.util.xml.XStreamMediaIdConverter;
 
 @XStreamAlias("xml")
 @Data

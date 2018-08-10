@@ -2,7 +2,7 @@ package com.laonog.weixin.biz.bean.kefu.result;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import me.chanjar.weixin.common.util.ToStringUtils;
+import com.laonog.weixin.util.ToStringUtils;
 
 import java.io.Serializable;
 

@@ -3,11 +3,11 @@ package com.laonog.weixin.biz.bean.store;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
+import com.laonog.weixin.annotation.Required;
+import com.laonog.weixin.biz.util.json.WxMpGsonBuilder;
+import com.laonog.weixin.util.ToStringUtils;
 import lombok.Builder;
 import lombok.Data;
-import me.chanjar.weixin.common.annotation.Required;
-import me.chanjar.weixin.common.util.ToStringUtils;
-import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

@@ -3,7 +3,7 @@ package com.laonog.weixin.biz.bean.device;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.laonog.weixin.util.json.WxGsonBuilder;
 
 /**
  *

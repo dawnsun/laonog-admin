@@ -1,11 +1,11 @@
 package com.laonog.weixin.biz.util.requestexecuter.material;
 
-import me.chanjar.weixin.common.WxType;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.RequestHttp;
-import me.chanjar.weixin.common.util.http.apache.Utf8ResponseHandler;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.laonog.weixin.WxType;
+import com.laonog.weixin.error.WxError;
+import com.laonog.weixin.error.WxErrorException;
+import com.laonog.weixin.util.http.RequestHttp;
+import com.laonog.weixin.util.http.Utf8ResponseHandler;
+import com.laonog.weixin.util.json.WxGsonBuilder;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;

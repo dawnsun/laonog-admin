@@ -4,7 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import me.chanjar.weixin.common.api.WxConsts;
+import com.laonog.weixin.WxConsts;
 import me.chanjar.weixin.mp.bean.WxMpMassPreviewMessage;
 
 import java.lang.reflect.Type;

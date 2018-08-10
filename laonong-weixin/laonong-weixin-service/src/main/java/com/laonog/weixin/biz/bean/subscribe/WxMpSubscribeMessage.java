@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
+import com.laonog.weixin.biz.util.json.WxMpGsonBuilder;
 
 import java.io.Serializable;
 

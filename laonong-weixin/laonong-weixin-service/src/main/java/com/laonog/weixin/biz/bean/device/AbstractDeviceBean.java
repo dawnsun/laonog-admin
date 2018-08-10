@@ -1,6 +1,6 @@
 package com.laonog.weixin.biz.bean.device;
 
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.laonog.weixin.util.json.WxGsonBuilder;
 
 import java.io.Serializable;
 

@@ -1,7 +1,7 @@
 package com.laonog.weixin.biz.util.json;
 
 import com.google.gson.*;
-import me.chanjar.weixin.common.api.WxConsts;
+import com.laonog.weixin.WxConsts;
 import me.chanjar.weixin.mp.bean.WxMpMassOpenIdsMessage;
 import org.apache.commons.lang3.StringUtils;
 

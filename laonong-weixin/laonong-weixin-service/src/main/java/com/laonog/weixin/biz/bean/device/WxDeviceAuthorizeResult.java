@@ -2,7 +2,7 @@ package com.laonog.weixin.biz.bean.device;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.laonog.weixin.util.json.WxGsonBuilder;
 
 import java.util.List;
 

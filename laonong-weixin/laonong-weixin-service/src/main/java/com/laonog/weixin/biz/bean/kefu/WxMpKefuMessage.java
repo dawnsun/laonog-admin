@@ -1,9 +1,9 @@
 package com.laonog.weixin.biz.bean.kefu;
 
 import lombok.Data;
-import me.chanjar.weixin.common.api.WxConsts;
+import com.laonog.weixin.WxConsts;
 import me.chanjar.weixin.mp.builder.kefu.*;
-import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
+import com.laonog.weixin.biz.util.json.WxMpGsonBuilder;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -8,7 +8,7 @@ import jodd.util.StringPool;
 import me.chanjar.weixin.common.error.WxError;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.util.http.RequestHttp;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.laonog.weixin.util.json.WxGsonBuilder;
 import org.apache.commons.io.IOUtils;
 
 import java.io.ByteArrayInputStream;
