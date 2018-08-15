@@ -1,27 +1,16 @@
-package com.laonog.weixin.biz.controller;
+package com.laonog.weixin.api;
 
 import com.laonog.weixin.bean.WxMenu;
-import com.laonog.weixin.bean.WxMenuButton;
 import com.laonog.weixin.bean.menu.WxMpGetSelfMenuInfoResult;
 import com.laonog.weixin.bean.menu.WxMpMenu;
 import com.laonog.weixin.error.WxErrorException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
 /**
- * <pre>
- *  注意：此contorller 实现WxMpMenuService接口，仅是为了演示如何调用所有菜单相关操作接口，
- *      实际项目中无需这样，根据自己需要添加对应接口即可
- * </pre>
+ * 菜单相关操作接口
  *
- * @author Binary Wang(https://github.com/binarywang)
+ * @author Binary Wang
  */
-@RestController
-@RequestMapping("/wechat/menu")
-public class WxMenuController implements WxMpMenuService {
-
-  @Autowired
-  private WxMpService wxService;
+public interface WxMpMenuService {
 
   /**
    * <pre>
@@ -31,58 +20,9 @@ public class WxMenuController implements WxMpMenuService {
    * 详情请见：https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1455782296&token=&lang=zh_CN
    * </pre>
    *
-   * @param menu
    * @return 如果是个性化菜单，则返回menuid，否则返回null
    */
-  @Override
-  @PostMapping("/create")
-  public String menuCreate(@RequestBody WxMenu menu) throws WxErrorException {
-    return this.wxService.getMenuService().menuCreate(menu);
-  }
-
-  @GetMapping("/create")
-  public String menuCreateSample() throws WxErrorException {
-    WxMenu menu = new WxMenu();
-    WxMenuButton button1 = new WxMenuButton();
-    button1.setType(MenuButtonType.CLICK);
-    button1.setName("今日歌曲");
-    button1.setKey("V1001_TODAY_MUSIC");
-
-//        WxMenuButton button2 = new WxMenuButton();
-//        button2.setType(WxConsts.BUTTON_MINIPROGRAM);
-//        button2.setName("小程序");
-//        button2.setAppId("wx286b93c14bbf93aa");
-//        button2.setPagePath("pages/lunar/index.html");
-//        button2.setUrl("http://mp.weixin.qq.com");
-
-    WxMenuButton button3 = new WxMenuButton();
-    button3.setName("菜单");
-
-    menu.getButtons().add(button1);
-//        menu.getButtons().add(button2);
-    menu.getButtons().add(button3);
-
-    WxMenuButton button31 = new WxMenuButton();
-    button31.setType(MenuButtonType.VIEW);
-    button31.setName("搜索");
-    button31.setUrl("http://www.soso.com/");
-
-    WxMenuButton button32 = new WxMenuButton();
-    button32.setType(MenuButtonType.VIEW);
-    button32.setName("视频");
-    button32.setUrl("http://v.qq.com/");
-
-    WxMenuButton button33 = new WxMenuButton();
-    button33.setType(MenuButtonType.CLICK);
-    button33.setName("赞一下我们");
-    button33.setKey("V1001_GOOD");
-
-    button3.getSubButtons().add(button31);
-    button3.getSubButtons().add(button32);
-    button3.getSubButtons().add(button33);
-
-    return this.wxService.getMenuService().menuCreate(menu);
-  }
+  String menuCreate(WxMenu menu) throws WxErrorException;
 
   /**
    * <pre>
@@ -92,14 +32,9 @@ public class WxMenuController implements WxMpMenuService {
    * 详情请见：https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1455782296&token=&lang=zh_CN
    * </pre>
    *
-   * @param json
    * @return 如果是个性化菜单，则返回menuid，否则返回null
    */
-  @Override
-  @GetMapping("/create/{json}")
-  public String menuCreate(@PathVariable String json) throws WxErrorException {
-    return this.wxService.getMenuService().menuCreate(json);
-  }
+  String menuCreate(String json) throws WxErrorException;
 
   /**
    * <pre>
@@ -107,11 +42,7 @@ public class WxMenuController implements WxMpMenuService {
    * 详情请见: https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141015&token=&lang=zh_CN
    * </pre>
    */
-  @Override
-  @GetMapping("/delete")
-  public void menuDelete() throws WxErrorException {
-    this.wxService.getMenuService().menuDelete();
-  }
+  void menuDelete() throws WxErrorException;
 
   /**
    * <pre>
@@ -121,11 +52,7 @@ public class WxMenuController implements WxMpMenuService {
    *
    * @param menuId 个性化菜单的menuid
    */
-  @Override
-  @GetMapping("/delete/{menuId}")
-  public void menuDelete(@PathVariable String menuId) throws WxErrorException {
-    this.wxService.getMenuService().menuDelete(menuId);
-  }
+  void menuDelete(String menuId) throws WxErrorException;
 
   /**
    * <pre>
@@ -133,11 +60,7 @@ public class WxMenuController implements WxMpMenuService {
    * 详情请见： https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141014&token=&lang=zh_CN
    * </pre>
    */
-  @Override
-  @GetMapping("/get")
-  public WxMpMenu menuGet() throws WxErrorException {
-    return this.wxService.getMenuService().menuGet();
-  }
+  WxMpMenu menuGet() throws WxErrorException;
 
   /**
    * <pre>
@@ -147,11 +70,7 @@ public class WxMenuController implements WxMpMenuService {
    *
    * @param userid 可以是粉丝的OpenID，也可以是粉丝的微信号。
    */
-  @Override
-  @GetMapping("/menuTryMatch/{userid}")
-  public WxMenu menuTryMatch(@PathVariable String userid) throws WxErrorException {
-    return this.wxService.getMenuService().menuTryMatch(userid);
-  }
+  WxMenu menuTryMatch(String userid) throws WxErrorException;
 
   /**
    * <pre>
@@ -168,9 +87,5 @@ public class WxMenuController implements WxMpMenuService {
    * https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info?access_token=ACCESS_TOKEN
    * </pre>
    */
-  @Override
-  @GetMapping("/getSelfMenuInfo")
-  public WxMpGetSelfMenuInfoResult getSelfMenuInfo() throws WxErrorException {
-    return this.wxService.getMenuService().getSelfMenuInfo();
-  }
+  WxMpGetSelfMenuInfoResult getSelfMenuInfo() throws WxErrorException;
 }
