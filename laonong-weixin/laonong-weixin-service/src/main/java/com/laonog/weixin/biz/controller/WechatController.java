@@ -1,5 +1,7 @@
 package com.laonog.weixin.biz.controller;
 
+import com.laonog.weixin.api.WxMpMessageRouter;
+import com.laonog.weixin.api.WxMpService;
 import com.laonog.weixin.bean.message.WxMpXmlMessage;
 import com.laonog.weixin.bean.message.WxMpXmlOutMessage;
 import org.apache.commons.lang3.StringUtils;
