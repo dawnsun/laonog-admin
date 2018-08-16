@@ -1,5 +1,8 @@
 package com.laonog.weixin.biz.controller;
 
+import com.laonog.weixin.api.WxConsts;
+import com.laonog.weixin.api.WxMpMenuService;
+import com.laonog.weixin.api.WxMpService;
 import com.laonog.weixin.bean.WxMenu;
 import com.laonog.weixin.bean.WxMenuButton;
 import com.laonog.weixin.bean.menu.WxMpGetSelfMenuInfoResult;
@@ -44,7 +47,7 @@ public class WxMenuController implements WxMpMenuService {
   public String menuCreateSample() throws WxErrorException {
     WxMenu menu = new WxMenu();
     WxMenuButton button1 = new WxMenuButton();
-    button1.setType(MenuButtonType.CLICK);
+    button1.setType(WxConsts.MenuButtonType.CLICK);
     button1.setName("今日歌曲");
     button1.setKey("V1001_TODAY_MUSIC");
 
@@ -63,17 +66,17 @@ public class WxMenuController implements WxMpMenuService {
     menu.getButtons().add(button3);
 
     WxMenuButton button31 = new WxMenuButton();
-    button31.setType(MenuButtonType.VIEW);
+    button31.setType(WxConsts.MenuButtonType.VIEW);
     button31.setName("搜索");
     button31.setUrl("http://www.soso.com/");
 
     WxMenuButton button32 = new WxMenuButton();
-    button32.setType(MenuButtonType.VIEW);
+    button32.setType(WxConsts.MenuButtonType.VIEW);
     button32.setName("视频");
     button32.setUrl("http://v.qq.com/");
 
     WxMenuButton button33 = new WxMenuButton();
-    button33.setType(MenuButtonType.CLICK);
+    button33.setType(WxConsts.MenuButtonType.CLICK);
     button33.setName("赞一下我们");
     button33.setKey("V1001_GOOD");
 

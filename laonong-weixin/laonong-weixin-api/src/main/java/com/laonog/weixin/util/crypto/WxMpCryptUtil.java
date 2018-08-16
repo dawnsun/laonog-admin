@@ -17,8 +17,7 @@
  */
 package com.laonog.weixin.util.crypto;
 
-import com.laonog.weixin.service.WxMpConfigStorage;
-import com.laonog.weixin.util.crypto.WxCryptUtil;
+import com.laonog.weixin.api.WxMpConfigStorage;
 import org.apache.commons.codec.binary.Base64;
 
 public class WxMpCryptUtil extends WxCryptUtil {
